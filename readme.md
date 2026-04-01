@@ -73,3 +73,9 @@ To physically verify the accuracy of the JSON output, run the visualizer to over
     python visualize_json.py
 
 **Output:** Generates `final_system_output.jpg`, displaying color-coded bounding masks (e.g., green for rooms, blue for walls) and text overlays based exclusively on the JSON data.
+
+### RUNNING/INFERENCE ONLY:
+Given an image path, say image.png (in the floorplan directory), a weight file path, say "weights.pt" (sample weight files are available in floorplan/models/pretrained/epoch50.pt), simply run: python predict.py by making the following changes (on lines 14, 15):
+IMAGE_PATH = "../data/cubicasa5k/cubicasa5k/cubicasa5k/high_quality/17/F1_scaled.png" (change this to your image file path)
+YOLO_WEIGHTS = "runs/models/floorplan_seg_v3/weights/best.pt" (change this to your weight file path)
+The output would then be a JSON file, as well as a visualization of the JSON as a png image.
